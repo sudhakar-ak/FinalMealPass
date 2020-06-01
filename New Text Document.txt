@@ -1,0 +1,46 @@
+<html>
+<head>
+<body>
+
+<h1>User database</h1>
+
+
+<h1 id="hello"></h1>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBB_xeNp2LW5WnfD7RezNkXJ7WN9cTCyXw",
+    authDomain: "test-js-fb-669c3.firebaseapp.com",
+    databaseURL: "https://test-js-fb-669c3.firebaseio.com",
+    projectId: "test-js-fb-669c3",
+    storageBucket: "test-js-fb-669c3.appspot.com",
+    messagingSenderId: "531068773437",
+    appId: "1:531068773437:web:e7ab425675e65f9d6bb654",
+    measurementId: "G-LO9TGRESEED"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  var hello = document.getElementById("hello")
+  var dbRef = firebase.database().ref().child('passdata').child('E5569114').child('EID')
+  dbRef.on('value', snap => hello.innerText = snap.val())
+
+
+
+</script>
+
+</body>
+</head>
+</html>
