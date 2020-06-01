@@ -1,0 +1,54 @@
+<html>
+<head>
+  <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+<body>
+
+        <h1>User database</h1>
+
+
+        <h1 id="hello"></h1>
+        <h2>HIIIII</h2>
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js "></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js "></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+            // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDKXlQkYR4-9HJxVOtLFaBP5HzbXVU3UEg",
+    authDomain: "mealpass-b4c23.firebaseio.com",
+    databaseURL: "https://mealpass-b4c23.firebaseio.com",
+    projectId: "mealpass-b4c23",
+    storageBucket: "mealpass-b4c23.appspot.com",
+    messagingSenderId: "343460266871",
+    appId: "1:343460266871:web:aafe788a7dfac5afbf9772"
+  };
+            // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // var database = firebase.database();
+
+  // function writeData() {
+  //   var dbRef1 = firebase.database().ref().child('Passdata')
+  //   dbRef1.set(
+  //   {
+  //   EID: document.getElementById('EIDfield').value,
+  //   PIN: document.getElementById('PINfield').value
+  // })
+  // }
+  var hello = document.getElementById("hello")
+  var dbRef = firebase.database().ref().child('Passdata').child('E5569114').child('EID')
+  dbRef.on('value', snap => hello.innerText = snap.val())
+
+</script>
+<input type = "text" placeholder= "EID" id = "EIDfield">
+<input type = "text" placeholder = "PIN" id = "PINfield">
+<button onclick="writeData()">Submit</button>
+
+</body>
+</head>
+</html>
